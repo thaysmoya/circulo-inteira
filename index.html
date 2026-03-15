@@ -3,55 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thays Fernanda Suci Moya Requena Marques - Psicologia Sistêmica</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <title>E-book Gratuito: Os 5 Papéis que Estão Te Esgotando — Thays Moya</title>
+    
+    <meta property="og:title" content="Os 5 Papéis que Estão Te Esgotando — E-book Gratuito">
+    <meta property="og:description" content="Para a mulher que cuida de todos e esqueceu de si mesma. Identifique seus padrões e recupere sua força.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jmarques82.github.io/landing-thays/">
+    <meta property="og:image" content="https://jmarques82.github.io/landing-thays/thumb-ebook.jpg"> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Mantendo o seu estilo clean e elegante com fundo creme */
         body { margin: 0; font-family: 'Montserrat', sans-serif; color: #333; background-color: #fdfbf7; line-height: 1.6; }
-        
-        /* Cabeçalho Elegante */
-        header { padding: 80px 20px; text-align: center; background-color: #fdfbf7; border-bottom: 1px solid rgba(0,0,0,0.03); }
+        header { padding: 80px 20px; text-align: center; background-color: #fdfbf7; }
         .crp-topo { color: #d4af37; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-size: 11px; margin-bottom: 15px; display: block; }
-        h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 42px); color: #2c3e50; margin: 10px 0; font-weight: 700; line-height: 1.2; }
-        .descricao-topo { max-width: 750px; margin: 25px auto; color: #7f8c8d; font-size: 18px; font-weight: 300; }
-
-        /* Grid de Padrões - Layout High-Value */
-        .secao-padroes { padding: 80px 20px; text-align: center; background-color: #fff; }
-        .titulo-secao { font-family: 'Playfair Display', serif; font-size: 32px; color: #2c3e50; margin-bottom: 10px; }
-        .sub-secao { color: #999; margin-bottom: 50px; font-size: 14px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 42px); color: #2c3e50; margin: 10px 0; font-weight: 700; }
         
-        .padroes-grid { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; max-width: 1250px; margin: 0 auto; }
+        .secao-padroes { padding: 60px 20px; text-align: center; background: #fff; }
+        .grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 1200px; margin: 40px auto; }
         
         .card { 
-            background: #fdfbf7; border-radius: 8px; border: 1px solid #eee; width: 300px; padding: 45px 30px; 
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); cursor: pointer; text-align: left; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.01); display: flex; flex-direction: column;
+            background: #fdfbf7; border-radius: 4px; border: 1px solid #eee; width: 280px; padding: 40px 30px; 
+            transition: 0.3s; cursor: pointer; text-align: left;
         }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.06); border-color: #d4af37; }
-        .card-num { font-family: 'Playfair Display', serif; font-size: 40px; color: #d4af37; opacity: 0.25; margin-bottom: 20px; }
-        .card-titulo { font-family: 'Playfair Display', serif; font-size: 19px; color: #2c3e50; margin-bottom: 20px; min-height: 55px; line-height: 1.3; font-weight: 700; }
+        .card:hover { transform: translateY(-5px); border-color: #d4af37; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card-num { font-family: 'Playfair Display', serif; font-size: 40px; color: #d4af37; opacity: 0.3; }
+        .card-titulo { font-family: 'Playfair Display', serif; font-size: 18px; color: #2c3e50; margin: 15px 0; min-height: 50px; }
         
-        /* Lista de Tópicos (Aparece no Hover) */
-        .card-desc { list-style: none; padding: 0; margin: 0; opacity: 0; max-height: 0; transition: all 0.5s ease; overflow: hidden; }
-        .card:hover .card-desc { opacity: 1; max-height: 250px; margin-top: 10px; }
-        .card-desc li { font-size: 13px; color: #6b7075; margin-bottom: 12px; position: relative; padding-left: 20px; line-height: 1.4; }
-        .card-desc li::before { content: "•"; color: #d4af37; position: absolute; left: 0; font-weight: bold; font-size: 18px; top: -2px; }
+        /* Tópicos internos que aparecem no hover */
+        .card-desc { list-style: none; padding: 0; margin: 0; opacity: 0; max-height: 0; transition: 0.4s; overflow: hidden; }
+        .card:hover .card-desc { opacity: 1; max-height: 200px; margin-top: 15px; }
+        .card-desc li { font-size: 13px; color: #666; margin-bottom: 8px; padding-left: 15px; position: relative; }
+        .card-desc li::before { content: "•"; color: #d4af37; position: absolute; left: 0; font-weight: bold; }
 
-        /* Secção de Contacto / WhatsApp */
-        .cta-container { padding: 100px 20px; text-align: center; background-color: #fdfbf7; }
+        .cta-whats { padding: 80px 20px; text-align: center; background-color: #fdfbf7; }
         .btn-whats { 
-            background-color: #25d366; color: white; padding: 22px 50px; text-decoration: none; 
-            border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 30px;
-            transition: 0.3s; font-size: 17px; letter-spacing: 0.5px; box-shadow: 0 10px 20px rgba(37,211,102,0.15);
+            background-color: #25d366; color: white; padding: 20px 40px; text-decoration: none; 
+            border-radius: 4px; font-weight: bold; display: inline-block; transition: 0.3s;
         }
-        .btn-whats:hover { background-color: #128c7e; transform: translateY(-2px); box-shadow: 0 15px 30px rgba(37,211,102,0.25); }
+        .btn-whats:hover { background-color: #128c7e; transform: scale(1.02); }
 
-        /* Rodapé com Dados Obrigatórios */
-        footer { padding: 80px 20px; text-align: center; background-color: #1a252f; color: #fff; }
-        .footer-nome { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 12px; display: block; letter-spacing: 1px; }
-        .footer-crp { opacity: 0.6; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
-        .copyright { font-size: 11px; opacity: 0.3; margin-top: 50px; letter-spacing: 1px; }
-        
-        @media (max-width: 768px) { .card { width: 100%; max-width: 340px; } }
+        footer { padding: 60px 20px; text-align: center; background-color: #2c3e50; color: #fff; font-size: 13px; }
     </style>
 </head>
 <body>
@@ -59,82 +50,33 @@
 <header>
     <span class="crp-topo">Psicóloga e Terapeuta Sistêmica Integrativa | CRP 14/06866-3</span>
     <h1>Thays Fernanda Suci Moya Requena Marques</h1>
-    <p class="descricao-topo">
-        10 anos de experiência clínica guiando mulheres no romper de padrões invisíveis para o resgate da sua força pessoal e identidade.
-    </p>
+    <p style="max-width: 600px; margin: 20px auto; color: #7f8c8d;">Identifique os padrões que sobrecarregam sua vida emocional e aprenda a devolver o que não é seu.</p>
 </header>
 
 <section class="secao-padroes">
-    <h2 class="titulo-secao">Os 5 Padrões que Bloqueiam a sua Vida</h2>
-    <p class="sub-secao">(Passe o rato ou toque nos cards para identificar os sintomas)</p>
-
-    <div class="padroes-grid">
-        <div class="card" tabindex="0">
+    <h2 style="font-family: 'Playfair Display', serif;">O que você vai descobrir:</h2>
+    <div class="grid">
+        <div class="card">
             <div class="card-num">01</div>
-            <div class="card-titulo">Gestão Solitária do Casal</div>
+            <div class="card-titulo">A mulher que gerencia o casal sozinha</div>
             <ul class="card-desc">
-                <li>Sobrecarga mental invisível.</li>
+                <li>Sobrecarga mental.</li>
                 <li>Sensação de "maternar" o parceiro.</li>
-                <li>Exaustão que o sono não resolve.</li>
+                <li>Exaustão invisível.</li>
             </ul>
         </div>
-
-        <div class="card" tabindex="0">
-            <div class="card-num">02</div>
-            <div class="card-titulo">Terapeuta da Família</div>
-            <ul class="card-desc">
-                <li>Depósito das dores de todos.</li>
-                <li>Dificuldade extrema em dizer "não".</li>
-                <li>Esquecimento das próprias necessidades.</li>
-            </ul>
         </div>
-
-        <div class="card" tabindex="0">
-            <div class="card-num">03</div>
-            <div class="card-titulo">Culpa Sem Origem Lógica</div>
-            <ul class="card-desc">
-                <li>Sensação constante de estar em dívida.</li>
-                <li>Medo de ser julgada ou "errar".</li>
-                <li>Autoexigência desproporcional.</li>
-            </ul>
-        </div>
-
-        <div class="card" tabindex="0">
-            <div class="card-num">04</div>
-            <div class="card-titulo">Sonhos no "Depois"</div>
-            <ul class="card-desc">
-                <li>Projetos pessoais sempre adiados.</li>
-                <li>Falta de energia para investir em si.</li>
-                <li>Prioridade total às demandas externas.</li>
-            </ul>
-        </div>
-
-        <div class="card" tabindex="0">
-            <div class="card-num">05</div>
-            <div class="card-titulo">Cuidar de Si é "Egoísmo"</div>
-            <ul class="card-desc">
-                <li>Remorso ao investir tempo ou dinheiro em si.</li>
-                <li>Necessidade de permissão invisível.</li>
-                <li>Bloqueio na busca pela felicidade real.</li>
-            </ul>
-        </div>
-    </div>
 </section>
 
-<div class="cta-container">
-    <h3 style="font-family: 'Playfair Display', serif; font-size: 26px; color: #2c3e50;">Deseja iniciar o seu processo individual?</h3>
-    <p style="color: #7f8c8d; max-width: 500px; margin: 10px auto;">Agende uma consulta para uma análise profunda da sua árvore sistêmica.</p>
-    <a href="https://wa.me/5567935016168?text=Olá%20Thays,%20gostaria%20de%20agendar%20uma%20consulta%20individual." class="btn-whats" target="_blank">
-        Agendar via WhatsApp (67) 93501-6168
+<div class="cta-whats">
+    <h3>Receba o e-book agora no seu WhatsApp</h3>
+    <a href="https://wa.me/5567999208015?text=Olá%20Thays!%20Quero%20receber%20o%20e-book%20gratuito%20Os%205%20Papéis%20que%20Estão%20Te%20Esgotando." class="btn-whats">
+        Quero meu e-book grátis
     </a>
 </div>
 
 <footer>
-    <span class="footer-nome">Thays Fernanda Suci Moya Requena Marques</span>
-    <span class="footer-crp">CRP 14/06866-3 | Gestalt-terapeuta</span>
-    <p class="copyright">
-        © 2026 Atendimento Sistêmico Integrativo. Todos os direitos reservados.
-    </p>
+    <p>Thays Fernanda Suci Moya Requena Marques<br>CRP 14/06866-3 | © 2026</p>
 </footer>
 
 </body>
