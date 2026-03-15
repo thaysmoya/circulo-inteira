@@ -3,109 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thays Moya - Psicologia Sistêmica</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Thays Fernanda Suci Moya Requena Marques - Psicologia Sistêmica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; font-family: 'Montserrat', sans-serif; color: #333; background-color: #fff; }
-        header { padding: 40px 20px; text-align: center; background-color: #fdfbf7; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 36px; color: #2c3e50; margin: 0; }
-        .subtitulo { color: #d4af37; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-size: 14px; }
+        :root { --dourado: #b8975a; --azul-profundo: #1a2a3a; --creme: #fdfbf7; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; color: var(--azul-profundo); background-color: #fff; line-height: 1.6; }
+        
+        header { padding: 80px 20px; text-align: center; background-color: var(--creme); }
+        .crp-badge { font-size: 11px; letter-spacing: 2px; color: var(--dourado); font-weight: 600; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 36px; margin: 10px 0; font-weight: 700; }
+        .hero-sub { max-width: 650px; margin: 20px auto; font-size: 20px; color: #555; font-style: italic; font-family: 'Playfair Display', serif; }
 
-        /* Seção dos 5 Padrões */
-        .secao-padroes { padding: 60px 20px; text-align: center; background-color: #fff; }
-        .padroes-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px; }
-        .card { 
-            background: white; border-radius: 15px; border: 1px solid #eee; width: 280px; padding: 30px; 
-            transition: 0.4s; cursor: pointer; position: relative; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        /* Grid de Padrões - Efeito Identidade */
+        .secao-experiencia { padding: 100px 20px; background-color: #fff; text-align: center; }
+        .chamada-curiosidade { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 50px; }
+        
+        .grid-interativo { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; max-width: 1200px; margin: 0 auto; }
+        
+        .card-confronto { 
+            background: #fff; border: 1px solid #eaeaea; width: 350px; padding: 50px 30px; 
+            border-radius: 8px; transition: all 0.4s ease; cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
         }
-        .card:hover { transform: translateY(-10px); border-color: #d4af37; box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
-        .card-num { font-family: 'Playfair Display', serif; font-size: 40px; color: #d4af37; opacity: 0.5; margin-bottom: 15px; }
-        .card-titulo { font-weight: 700; font-size: 18px; margin-bottom: 10px; color: #2c3e50; }
-        .card-desc { font-size: 14px; color: #666; line-height: 1.6; opacity: 0; max-height: 0; transition: 0.5s; }
-        .card:hover .card-desc { opacity: 1; max-height: 150px; margin-top: 15px; }
+        .card-confronto:hover { border-color: var(--dourado); transform: translateY(-5px); box-shadow: 0 15px 45px rgba(184, 151, 90, 0.1); }
+        .card-num { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--dourado); margin-bottom: 20px; font-style: italic; }
+        .card-pergunta { font-weight: 600; font-size: 18px; color: var(--azul-profundo); letter-spacing: -0.5px; }
 
-        /* Order Bump Box */
-        .order-bump { 
-            max-width: 600px; margin: 50px auto; border: 2px dashed #d4af37; padding: 30px; 
-            border-radius: 20px; background-color: #fffef2; text-align: center;
+        /* SEÇÃO DE CONVERSÃO / ORDER BUMP */
+        .caixa-oferta { 
+            max-width: 700px; margin: 80px auto; background: var(--creme); border: 1px solid var(--dourado);
+            padding: 50px; border-radius: 4px; position: relative; text-align: center;
         }
-        .preco { font-size: 28px; font-weight: bold; color: #27ae60; margin: 15px 0; }
-        .btn-lastlink { 
-            display: inline-block; background-color: #1a5276; color: white; text-decoration: none; 
-            padding: 18px 40px; border-radius: 8px; font-weight: bold; transition: 0.3s; width: 80%;
+        .selo-upsell { 
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+            background: var(--dourado); color: white; padding: 5px 25px; font-size: 12px; font-weight: bold; border-radius: 50px;
         }
-        .btn-lastlink:hover { background-color: #154360; transform: scale(1.02); }
+        .preco-oferta { font-size: 42px; font-weight: bold; margin: 20px 0; color: #27ae60; }
+        
+        .btn-principal { 
+            display: block; background-color: var(--azul-profundo); color: white; text-decoration: none; 
+            padding: 22px; border-radius: 4px; font-weight: bold; font-size: 18px; letter-spacing: 1px;
+            transition: 0.3s; margin-top: 30px;
+        }
+        .btn-principal:hover { background-color: #2c3e50; letter-spacing: 2px; }
 
-        /* Rodapé e Botão Whats */
-        footer { padding: 40px 20px; text-align: center; background-color: #2c3e50; color: white; margin-top: 60px; }
         .btn-whats { 
-            background-color: #25d366; color: white; padding: 15px 30px; text-decoration: none; 
-            border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 20px;
+            background-color: transparent; color: var(--azul-profundo); padding: 15px 30px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-block; 
+            margin-top: 40px; border: 1px solid var(--azul-profundo); font-size: 14px;
         }
+
+        footer { padding: 80px 20px; text-align: center; background-color: var(--azul-profundo); color: #fff; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="subtitulo">Psicologia Sistêmica Integrativa</div>
-    <h1>Thays Moya</h1>
-    <p style="max-width: 600px; margin: 20px auto; color: #7f8c8d;">
-        Ajudando mulheres a romperem padrões invisíveis e retomarem sua força pessoal.
-    </p>
+    <span class="crp-badge">Psicologia Sistêmica Integrativa</span>
+    <h1>Thays Fernanda Suci Moya Requena Marques</h1>
+    <p class="hero-sub">Para a mulher que cansa de ser forte e decide, finalmente, ser inteira.</p>
 </header>
 
-<section class="secao-padroes">
-    <h2 style="font-family: 'Playfair Display', serif; font-size: 28px;">Os 5 padrões que bloqueiam sua vida</h2>
-    <p style="color: #999;">(Passe o mouse ou toque nos cards para revelar)</p>
-
-    <div class="padroes-grid">
-        <div class="card">
-            <div class="card-num">01</div>
-            <div class="card-titulo">A mulher que gerencia o casal sozinha</div>
-            <div class="card-desc">Quando a carga mental da família repousa apenas nos seus ombros, gerando uma exaustão que o descanso comum não cura.</div>
+<section class="secao-experiencia">
+    <h2 class="chamada-curiosidade">O que você sente, mas ainda não nomeou:</h2>
+    
+    <div class="grid-interativo">
+        <div class="card-confronto">
+            <div class="card-num">I</div>
+            <div class="card-pergunta">Você gerencia o casal sozinha e o cansaço não passa com uma noite de sono?</div>
         </div>
-        <div class="card">
-            <div class="card-num">02</div>
-            <div class="card-titulo">A terapeuta gratuita da família</div>
-            <div class="card-desc">Você se torna o depósito das dores de todos, esquecendo de cuidar das suas próprias necessidades.</div>
+        <div class="card-confronto">
+            <div class="card-num">II</div>
+            <div class="card-pergunta">Sente que é a "terapeuta gratuita" da família e ninguém cuida de você?</div>
         </div>
-        <div class="card">
-            <div class="card-num">03</div>
-            <div class="card-titulo">Culpa sem origem lógica</div>
-            <div class="card-desc">A sensação constante de estar em dívida, mesmo quando você deu o seu melhor.</div>
+        <div class="card-confronto">
+            <div class="card-num">III</div>
+            <div class="card-pergunta">Carrega uma culpa pesada, mesmo sem saber exatamente o que fez de errado?</div>
         </div>
-        <div class="card">
-            <div class="card-num">04</div>
-            <div class="card-titulo">Sonhos no "depois"</div>
-            <div class="card-desc">Seus projetos e desejos são sempre adiados em favor das prioridades alheias.</div>
+        <div class="card-confronto">
+            <div class="card-num">IV</div>
+            <div class="card-pergunta">Seus planos ficam sempre para o "depois" das necessidades dos outros?</div>
         </div>
-        <div class="card">
-            <div class="card-num">05</div>
-            <div class="card-titulo">Cuidar de si parece egoísmo</div>
-            <div class="card-desc">A crença central que impede você de investir na própria felicidade e saúde mental.</div>
+        <div class="card-confronto">
+            <div class="card-num">V</div>
+            <div class="card-pergunta">Cuidar de si mesma dispara um sinal de alerta interno que parece egoísmo?</div>
         </div>
     </div>
 </section>
 
-<div class="order-bump">
-    <span style="background: #d4af37; color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold;">OFERTA DE ACESSO IMEDIATO</span>
-    <h3 style="margin: 20px 0 10px 0;">Faça parte do Círculo Inteira</h3>
-    <p style="font-size: 14px; color: #555;">Assinatura mensal com encontros e conteúdos exclusivos para sua jornada sistêmica.</p>
-    <div class="preco">R$ 97,00/mês</div>
-    <a href="https://lastlink.com/p/C7D9E1B23" onclick="trackLastlinkClick()" target="_blank" class="btn-lastlink">ASSINAR AGORA</a>
+<div class="caixa-oferta">
+    <div class="selo-upsell">ACESSO À COMUNIDADE</div>
+    <h2 style="font-family: 'Playfair Display', serif;">O Próximo Passo: Círculo Inteira</h2>
+    <p style="color: #666; font-size: 16px;">O Ebook te dá a consciência. O Círculo te dá o caminho. <br>Acompanhamento mensal para romper de vez com esses padrões.</p>
+    
+    <div class="preco-oferta">R$ 97,00<span style="font-size: 14px; color: #999;">/mês</span></div>
+    
+    <a href="https://lastlink.com/p/C7D9E1B23" onclick="trackLastlinkClick()" target="_blank" class="btn-principal">
+        QUERO ME TORNAR INTEIRA AGORA
+    </a>
+    
+    <p style="font-size: 12px; color: #999; margin-top: 20px;">
+        *Assinatura mensal recorrente. Cancele quando quiser.
+    </p>
 </div>
 
-<div style="text-align: center; padding: 40px;">
-    <h3>Deseja atendimento individual?</h3>
-    <a href="https://wa.me/5567935016168?text=Olá%20Thays,%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." class="btn-whats">
-        Chamar no WhatsApp
+<div style="text-align: center; padding: 100px 20px; background-color: #fafafa;">
+    <h3 style="font-family: 'Playfair Display', serif; font-size: 24px;">Atendimento Individual Individualizado</h3>
+    <p>Caso prefira uma análise profunda e exclusiva da sua árvore sistêmica.</p>
+    <a href="https://wa.me/5567935016168?text=Olá%20Thays,%20vim%20pelo%20site%20e%20quero%20agendar%20uma%20sessão." class="btn-whats">
+        AGENDAR CONSULTA VIA WHATSAPP
     </a>
 </div>
 
 <footer>
-    <p><strong>Thays Fernanda Suci Moya Requena Marques</strong></p>
-    <p>Psicóloga e Terapeuta Sistêmica Integrativa | CRP 14/06866-3</p>
-    <p style="font-size: 12px; opacity: 0.7;">© 2026 Todos os direitos reservados.</p>
+    <span style="font-family: 'Playfair Display', serif; font-size: 22px; display: block; margin-bottom: 10px;">Thays Fernanda Suci Moya Requena Marques</span>
+    <span style="opacity: 0.7; font-size: 13px; letter-spacing: 1px;">Psicóloga Clínica | CRP 14/06866-3</span>
+    <div style="margin-top: 40px; font-size: 11px; opacity: 0.5;">© 2026 Todos os direitos reservados.</div>
 </footer>
 
 <script>
@@ -113,7 +126,7 @@ function trackLastlinkClick() {
     if (typeof fbq !== 'undefined') {
         fbq('trackCustom', 'CliqueOfertaCirculo', { value: 97.00, currency: 'BRL' });
     }
-    console.log('Dados de clique (Lastlink) enviados para análise.');
+    console.log('Interesse no Círculo Inteira registrado.');
 }
 </script>
 
