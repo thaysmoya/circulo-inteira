@@ -1,195 +1,141 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thays Fernanda Suci Moya Requena Marques — Psicologia Sistêmica</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --verde:#3D6B50;--verde-esc:#264438;--verde-clr:#EBF2ED;--verde-med:#C8DDD0;
-  --terra:#C4785A;--terra-esc:#9E5A3F;--terra-clr:#F7EDE7;
-  --creme:#FAF8F3;--creme2:#F0EBE0;--creme3:#E8DFD0;
-  --text:#1C1A15;--text-soft:#6B6055;--text-muted:#9B8F82;
-  --borda:rgba(61,107,80,0.12);
-}
-html{scroll-behavior:smooth}
-body{font-family:'Jost',sans-serif;background:var(--creme);color:var(--text);overflow-x:hidden}
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:999}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thays Fernanda Suci Moya Requena Marques - Psicologia Sistêmica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; font-family: 'Montserrat', sans-serif; color: #333; background-color: #fdfbf7; line-height: 1.6; }
+        
+        /* Cabeçalho Elegante */
+        header { padding: 80px 20px; text-align: center; background-color: #fdfbf7; border-bottom: 1px solid rgba(0,0,0,0.03); }
+        .crp-topo { color: #d4af37; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-size: 11px; margin-bottom: 15px; display: block; }
+        h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 42px); color: #2c3e50; margin: 10px 0; font-weight: 700; line-height: 1.2; }
+        .descricao-topo { max-width: 750px; margin: 25px auto; color: #7f8c8d; font-size: 18px; font-weight: 300; }
 
-/* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-.hero-esq{background:var(--verde-esc);padding:72px 56px 72px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-.hero-dir{background:var(--creme);padding:72px 64px 72px 56px;display:flex;flex-direction:column;justify-content:center;position:relative}
+        /* Grid de Padrões - Layout High-Value */
+        .secao-padroes { padding: 80px 20px; text-align: center; background-color: #fff; }
+        .titulo-secao { font-family: 'Playfair Display', serif; font-size: 32px; color: #2c3e50; margin-bottom: 10px; }
+        .sub-secao { color: #999; margin-bottom: 50px; font-size: 14px; }
+        
+        .padroes-grid { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; max-width: 1250px; margin: 0 auto; }
+        
+        .card { 
+            background: #fdfbf7; border-radius: 8px; border: 1px solid #eee; width: 300px; padding: 45px 30px; 
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); cursor: pointer; text-align: left; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01); display: flex; flex-direction: column;
+        }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.06); border-color: #d4af37; }
+        .card-num { font-family: 'Playfair Display', serif; font-size: 40px; color: #d4af37; opacity: 0.25; margin-bottom: 20px; }
+        .card-titulo { font-family: 'Playfair Display', serif; font-size: 19px; color: #2c3e50; margin-bottom: 20px; min-height: 55px; line-height: 1.3; font-weight: 700; }
+        
+        /* Lista de Tópicos (Aparece no Hover) */
+        .card-desc { list-style: none; padding: 0; margin: 0; opacity: 0; max-height: 0; transition: all 0.5s ease; overflow: hidden; }
+        .card:hover .card-desc { opacity: 1; max-height: 250px; margin-top: 10px; }
+        .card-desc li { font-size: 13px; color: #6b7075; margin-bottom: 12px; position: relative; padding-left: 20px; line-height: 1.4; }
+        .card-desc li::before { content: "•"; color: #d4af37; position: absolute; left: 0; font-weight: bold; font-size: 18px; top: -2px; }
 
-.tag{display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:32px}
-.tag::before{content:'';display:block;width:28px;height:1px;background:var(--terra);flex-shrink:0}
+        /* Secção de Contacto / WhatsApp */
+        .cta-container { padding: 100px 20px; text-align: center; background-color: #fdfbf7; }
+        .btn-whats { 
+            background-color: #25d366; color: white; padding: 22px 50px; text-decoration: none; 
+            border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 30px;
+            transition: 0.3s; font-size: 17px; letter-spacing: 0.5px; box-shadow: 0 10px 20px rgba(37,211,102,0.15);
+        }
+        .btn-whats:hover { background-color: #128c7e; transform: translateY(-2px); box-shadow: 0 15px 30px rgba(37,211,102,0.25); }
 
-.titulo{font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,58px);font-weight:400;line-height:1.1;color:#FAF8F3;margin-bottom:6px}
-.titulo em{font-style:italic;color:var(--terra);display:block}
-.subtitulo-hero{font-family:'Playfair Display',serif;font-size:clamp(15px,1.5vw,18px);font-weight:400;font-style:italic;color:rgba(250,248,243,0.65);margin-top:24px;line-height:1.7;max-width:400px}
-.linha-hero{width:36px;height:1px;background:rgba(196,120,90,0.5);margin:36px 0}
-.autora-hero{font-size:11px;color:rgba(250,248,243,0.4);letter-spacing:2px;text-transform:uppercase;font-weight:300}
-.autora-hero strong{color:rgba(250,248,243,0.85);font-weight:500;display:block;margin-top:4px}
-
-/* FORM */
-.form-wrap{animation:sobir 0.7s ease both}
-@keyframes sobir{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.form-titulo{font-family:'Playfair Display',serif;font-size:clamp(24px,2.8vw,32px);font-weight:400;color:var(--verde-esc);line-height:1.2;margin-bottom:12px}
-.form-titulo em{font-style:italic;color:var(--terra-esc)}
-.form-desc{font-size:14px;color:var(--text-soft);line-height:1.7;margin-bottom:32px}
-.campo input{width:100%;padding:15px 18px;border:1.5px solid var(--creme3);border-radius:4px;background:#FFF;font-size:14px;font-family:'Jost',sans-serif;margin-bottom:12px;outline:none}
-.campo input:focus{border-color:var(--verde);box-shadow:0 0 0 3px rgba(61,107,80,0.07)}
-
-.btn{width:100%;padding:18px 24px;background:var(--terra);color:white;border:none;border-radius:4px;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:0.3s;display:flex;align-items:center;justify-content:center;gap:10px}
-.btn:hover{background:var(--terra-esc);transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,120,90,0.25)}
-
-/* PAPÉIS / CARDS */
-.papeis{background:var(--creme2);padding:100px 64px}
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-.card{background:var(--creme);border:1px solid rgba(61,107,80,0.1);border-radius:6px;padding:32px 24px;transition:0.4s;position:relative;display:flex;flex-direction:column;text-align:left}
-.card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(38,68,56,0.08);border-color:var(--terra)}
-
-.card-num{font-family:'Playfair Display',serif;font-size:38px;color:var(--verde-med);margin-bottom:15px;opacity:0.6}
-.card-titulo{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--verde-esc);line-height:1.3;margin-bottom:15px;min-height:45px}
-
-/* Lista de Tópicos nos Cards */
-.card-desc{list-style:none;padding:0;margin:0;opacity:0;max-height:0;transition:0.5s ease;overflow:hidden}
-.card:hover .card-desc{opacity:1;max-height:200px;margin-top:10px}
-.card-desc li{font-size:12px;color:var(--text-soft);margin-bottom:8px;position:relative;padding-left:15px;line-height:1.5}
-.card-desc li::before{content:'•';color:var(--terra);position:absolute;left:0;font-weight:bold}
-
-/* SOBRE */
-.sobre{background:var(--verde-esc);padding:100px 64px;color:#FAF8F3}
-.sobre-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.sobre-nome{font-family:'Playfair Display',serif;font-size:28px;margin-bottom:4px}
-.sobre-crp{color:var(--terra);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
-
-footer{background:var(--verde-esc);padding:40px 64px;text-align:center;border-top:1px solid rgba(250,248,243,0.05)}
-footer p{font-size:11px;color:rgba(250,248,243,0.4);line-height:1.8}
-
-@media(max-width:1100px){ .grid{grid-template-columns:repeat(2,1fr)} .hero{grid-template-columns:1fr} }
-@media(max-width:600px){ .grid{grid-template-columns:1fr} .papeis, .hero-esq, .hero-dir{padding:40px 24px} }
-</style>
+        /* Rodapé com Dados Obrigatórios */
+        footer { padding: 80px 20px; text-align: center; background-color: #1a252f; color: #fff; }
+        .footer-nome { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 12px; display: block; letter-spacing: 1px; }
+        .footer-crp { opacity: 0.6; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; }
+        .copyright { font-size: 11px; opacity: 0.3; margin-top: 50px; letter-spacing: 1px; }
+        
+        @media (max-width: 768px) { .card { width: 100%; max-width: 340px; } }
+    </style>
 </head>
 <body>
 
-<section class="hero">
-  <div class="hero-esq">
-    <span class="tag">E-book gratuito</span>
-    <h1 class="titulo">
-      Os 5 Papéis que
-      <em>Estão Te Esgotando</em>
-    </h1>
-    <p class="subtitulo-hero">Para a mulher que cuida de todos — mas esqueceu de incluir a si mesma na lista.</p>
-    <div class="linha-hero"></div>
-    <p class="autora-hero">Psicóloga Clínica<br><strong>Thays Fernanda Suci Moya Requena Marques</strong></p>
-  </div>
+<header>
+    <span class="crp-topo">Psicóloga e Terapeuta Sistêmica Integrativa | CRP 14/06866-3</span>
+    <h1>Thays Fernanda Suci Moya Requena Marques</h1>
+    <p class="descricao-topo">
+        10 anos de experiência clínica guiando mulheres no romper de padrões invisíveis para o resgate da sua força pessoal e identidade.
+    </p>
+</header>
 
-  <div class="hero-dir">
-    <div class="form-wrap">
-      <h2 class="form-titulo">Receba seu material,<br><em>direto no WhatsApp</em></h2>
-      <p class="form-desc">Preencha os campos abaixo para receber o guia agora mesmo.</p>
-      <form id="form" onsubmit="enviar(event)">
-        <div class="campo"><input type="text" id="nome" placeholder="Seu nome completo" required/></div>
-        <div class="campo"><input type="tel" id="fone" placeholder="Seu WhatsApp (com DDD)" required/></div>
-        <button type="submit" class="btn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Quero o E-book Grátis
-        </button>
-      </form>
-      <p style="font-size:11px; color:var(--text-muted); text-align:center; margin-top:15px;">Privacidade garantida conforme o código de ética profissional.</p>
+<section class="secao-padroes">
+    <h2 class="titulo-secao">Os 5 Padrões que Bloqueiam a sua Vida</h2>
+    <p class="sub-secao">(Passe o rato ou toque nos cards para identificar os sintomas)</p>
+
+    <div class="padroes-grid">
+        <div class="card" tabindex="0">
+            <div class="card-num">01</div>
+            <div class="card-titulo">Gestão Solitária do Casal</div>
+            <ul class="card-desc">
+                <li>Sobrecarga mental invisível.</li>
+                <li>Sensação de "maternar" o parceiro.</li>
+                <li>Exaustão que o sono não resolve.</li>
+            </ul>
+        </div>
+
+        <div class="card" tabindex="0">
+            <div class="card-num">02</div>
+            <div class="card-titulo">Terapeuta da Família</div>
+            <ul class="card-desc">
+                <li>Depósito das dores de todos.</li>
+                <li>Dificuldade extrema em dizer "não".</li>
+                <li>Esquecimento das próprias necessidades.</li>
+            </ul>
+        </div>
+
+        <div class="card" tabindex="0">
+            <div class="card-num">03</div>
+            <div class="card-titulo">Culpa Sem Origem Lógica</div>
+            <ul class="card-desc">
+                <li>Sensação constante de estar em dívida.</li>
+                <li>Medo de ser julgada ou "errar".</li>
+                <li>Autoexigência desproporcional.</li>
+            </ul>
+        </div>
+
+        <div class="card" tabindex="0">
+            <div class="card-num">04</div>
+            <div class="card-titulo">Sonhos no "Depois"</div>
+            <ul class="card-desc">
+                <li>Projetos pessoais sempre adiados.</li>
+                <li>Falta de energia para investir em si.</li>
+                <li>Prioridade total às demandas externas.</li>
+            </ul>
+        </div>
+
+        <div class="card" tabindex="0">
+            <div class="card-num">05</div>
+            <div class="card-titulo">Cuidar de Si é "Egoísmo"</div>
+            <ul class="card-desc">
+                <li>Remorso ao investir tempo ou dinheiro em si.</li>
+                <li>Necessidade de permissão invisível.</li>
+                <li>Bloqueio na busca pela felicidade real.</li>
+            </ul>
+        </div>
     </div>
-  </div>
 </section>
 
-<section class="papeis">
-  <div style="max-width:1120px; margin:0 auto; text-align:center;">
-    <h2 style="font-family:'Playfair Display',serif; font-size:clamp(28px,3vw,42px); color:var(--verde-esc); margin-bottom:50px;">
-      Identifique seu padrão emocional:
-    </h2>
-    <div class="grid">
-      <div class="card">
-        <div class="card-num">01</div>
-        <h3 class="card-titulo">Gestão Solitária do Casal</h3>
-        <ul class="card-desc">
-          <li>Carga mental invisível e constante.</li>
-          <li>Sensação de "maternar" o parceiro.</li>
-          <li>Exaustão que o sono comum não cura.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="card-num">02</div>
-        <h3 class="card-titulo">Terapeuta Gratuita da Família</h3>
-        <ul class="card-desc">
-          <li>Ouvinte de todos, cuidada por ninguém.</li>
-          <li>Dificuldade extrema em dizer "não".</li>
-          <li>Absorção do sofrimento alheio.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="card-num">03</div>
-        <h3 class="card-titulo">Culpa Sem Origem Lógica</h3>
-        <ul class="card-desc">
-          <li>Sensação eterna de estar em dívida.</li>
-          <li>Medo constante de ser "descoberta".</li>
-          <li>Dificuldade em desfrutar do sucesso.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="card-num">04</div>
-        <h3 class="card-titulo">Sonhos no "Depois"</h3>
-        <ul class="card-desc">
-          <li>Seus projetos ficam sempre para o fim.</li>
-          <li>Falta de energia para si mesma.</li>
-          <li>Prioridade total às demandas externas.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="card-num">05</div>
-        <h3 class="card-titulo">Cuidar de Si Parece Egoísmo</h3>
-        <ul class="card-desc">
-          <li>Remorso ao investir tempo em si.</li>
-          <li>Necessidade de pedir permissão invisível.</li>
-          <li>Bloqueio na busca pela felicidade real.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sobre">
-  <div class="sobre-inner">
-    <div style="font-family:'Playfair Display',serif; font-size:28px; font-style:italic; border-left: 2px solid var(--terra); padding-left:25px;">
-      "A mulher que cuida de todo mundo, muitas vezes, é a única que não tem quem cuide dela. É hora de devolver o que não é seu."
-    </div>
-    <div>
-      <h3 class="sobre-nome">Thays Fernanda Suci Moya Requena Marques</h3>
-      <p class="sobre-crp">CRP 14/06866-3</p>
-      <p style="font-size:14px; opacity:0.8; font-weight:300;">Psicóloga com 10 anos de experiência clínica. Especialista em Terapia Sistêmica Integrativa e Gestalt-terapia. Dedicada a ajudar mulheres a recuperarem sua identidade e força pessoal.</p>
-    </div>
-  </div>
-</section>
+<div class="cta-container">
+    <h3 style="font-family: 'Playfair Display', serif; font-size: 26px; color: #2c3e50;">Deseja iniciar o seu processo individual?</h3>
+    <p style="color: #7f8c8d; max-width: 500px; margin: 10px auto;">Agende uma consulta para uma análise profunda da sua árvore sistêmica.</p>
+    <a href="https://wa.me/5567935016168?text=Olá%20Thays,%20gostaria%20de%20agendar%20uma%20consulta%20individual." class="btn-whats" target="_blank">
+        Agendar via WhatsApp (67) 93501-6168
+    </a>
+</div>
 
 <footer>
-  <p><strong>Thays Fernanda Suci Moya Requena Marques</strong><br>
-  Psicóloga Clínica | CRP 14/06866-3 | Terapeuta Sistêmica Integrativa<br>
-  © 2026 Material Educativo. Todos os direitos reservados.</p>
+    <span class="footer-nome">Thays Fernanda Suci Moya Requena Marques</span>
+    <span class="footer-crp">CRP 14/06866-3 | Gestalt-terapeuta</span>
+    <p class="copyright">
+        © 2026 Atendimento Sistêmico Integrativo. Todos os direitos reservados.
+    </p>
 </footer>
-
-<script>
-const WHATSAPP_NUMERO="5567935016168"; 
-function enviar(e){
-  e.preventDefault();
-  const nome=document.getElementById('nome').value.trim();
-  const fone=document.getElementById('fone').value.trim();
-  const msg=encodeURIComponent(`Olá Thays! Me chamo ${nome} e quero receber o e-book gratuito "Os 5 Papéis que Estão Te Esgotando".`);
-  window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${msg}`,'_blank');
-}
-</script>
 
 </body>
 </html>
