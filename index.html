@@ -14,6 +14,7 @@
   --terra:#C4785A;--terra-esc:#9E5A3F;--terra-clr:#F7EDE7;
   --creme:#FAF8F3;--creme2:#F0EBE0;--creme3:#E8DFD0;
   --text:#1C1A15;--text-soft:#6B6055;--text-muted:#9B8F82;
+  --borda:rgba(61,107,80,0.12);
 }
 html{scroll-behavior:smooth}
 body{font-family:'Jost',sans-serif;background:var(--creme);color:var(--text);overflow-x:hidden}
@@ -21,83 +22,137 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-.hero-esq{background:var(--verde-esc);padding:72px 56px 72px 64px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-esq{background:var(--verde-esc);padding:72px 56px 72px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-esq::before{content:'';position:absolute;bottom:-120px;right:-80px;width:360px;height:360px;border-radius:50%;border:1px solid rgba(232,223,208,0.08);pointer-events:none}
 .hero-dir{background:var(--creme);padding:72px 64px 72px 56px;display:flex;flex-direction:column;justify-content:center;position:relative}
 
 .tag{display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:32px}
-.tag::before{content:'';display:block;width:28px;height:1px;background:var(--terra)}
+.tag::before{content:'';display:block;width:28px;height:1px;background:var(--terra);flex-shrink:0}
 
 .titulo{font-family:'Playfair Display',serif;font-size:clamp(40px,4.8vw,62px);font-weight:400;line-height:1.05;color:#FAF8F3;margin-bottom:6px}
 .titulo em{font-style:italic;color:var(--terra);display:block}
 .subtitulo-hero{font-family:'Playfair Display',serif;font-size:clamp(15px,1.5vw,18px);font-weight:400;font-style:italic;color:rgba(250,248,243,0.55);margin-top:24px;line-height:1.7;max-width:380px}
-.autora-hero{font-size:11px;color:rgba(250,248,243,0.4);letter-spacing:2px;text-transform:uppercase;font-weight:300;margin-top:36px}
+.linha-hero{width:36px;height:1px;background:rgba(196,120,90,0.5);margin:36px 0}
+.autora-hero{font-size:11px;color:rgba(250,248,243,0.4);letter-spacing:2px;text-transform:uppercase;font-weight:300}
+.autora-hero strong{color:rgba(250,248,243,0.75);font-weight:500}
 
 /* FORM */
+.form-wrap{animation:sobir 0.7s ease both;animation-delay:0.15s}
+@keyframes sobir{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.form-pre{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.form-pre::before{content:'';display:block;width:20px;height:1px;background:var(--terra)}
 .form-titulo{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,36px);font-weight:400;color:var(--verde-esc);line-height:1.2;margin-bottom:10px}
-.form-desc{font-size:14px;color:var(--text-soft);line-height:1.7;margin-bottom:32px}
-.campo input{width:100%;padding:15px 18px;border:1.5px solid var(--creme3);border-radius:3px;margin-bottom:14px;outline:none;font-family:'Jost',sans-serif}
-.instrucao{display:flex;gap:10px;padding:12px;background:var(--verde-clr);border-radius:3px;margin-bottom:16px;border-left:3px solid var(--verde)}
-.instrucao p{font-size:12px;color:var(--verde-esc);line-height:1.5}
-.btn{width:100%;padding:17px;background:var(--terra);color:white;border:none;border-radius:3px;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;transition: background 0.2s}
-.btn:hover{background:var(--terra-esc)}
+.form-titulo em{font-style:italic;color:var(--terra-esc)}
+.form-desc{font-size:14px;color:var(--text-soft);line-height:1.7;font-weight:300;margin-bottom:32px}
+.campo{position:relative;margin-bottom:14px}
+.campo input{width:100%;padding:15px 18px;border:1.5px solid var(--creme3);border-radius:3px;background:#FFF;font-size:14px;font-family:'Jost',sans-serif;font-weight:300;color:var(--text);transition:border-color 0.2s,box-shadow 0.2s;outline:none}
+.campo input:focus{border-color:var(--verde);box-shadow:0 0 0 3px rgba(61,107,80,0.07)}
+.instrucao{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:var(--verde-clr);border-radius:3px;margin-bottom:16px;border-left:3px solid var(--verde)}
+.instrucao-icone{font-size:15px;flex-shrink:0;margin-top:1px}
+.instrucao p{font-size:12px;color:var(--verde-esc);line-height:1.5;font-weight:400}
+.btn{width:100%;padding:17px 24px;background:var(--terra);color:white;border:none;border-radius:3px;font-size:13px;font-family:'Jost',sans-serif;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px}
+.btn:hover{background:var(--terra-esc);transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,120,90,0.25)}
+.btn svg{width:17px;height:17px;fill:currentColor}
+.aviso{margin-top:12px;font-size:11px;color:var(--text-muted);text-align:center;line-height:1.6}
 
-/* CARDS */
+/* STRIP */
+.strip{background:var(--verde-esc);padding:20px 64px;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.strip-item{display:flex;align-items:center;gap:10px;font-size:12px;color:rgba(250,248,243,0.6);letter-spacing:0.5px}
+.strip-item span{font-size:20px;font-family:'Playfair Display',serif;font-weight:700;color:var(--terra)}
+
+/* PAPÉIS - REDESIGN CARDS */
 .papeis{background:var(--creme2);padding:100px 64px}
-.secao-titulo{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,46px);color:var(--verde-esc);margin-bottom:40px;text-align:center}
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1200px;margin:0 auto}
-.card{background:var(--creme);padding:30px 20px;text-align:center;border-radius:4px;border:1px solid rgba(61,107,80,0.1);min-height:180px;display:flex;flex-direction:column;justify-content:center}
-.card-num{font-family:'Playfair Display',serif;font-size:32px;color:var(--verde-med);margin-bottom:10px}
-.card-titulo{font-family:'Playfair Display',serif;font-size:15px;color:var(--verde-esc);line-height:1.3}
+.papeis-inner{max-width:1120px;margin:0 auto}
+.secao-pre{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.secao-pre::before{content:'';display:block;width:24px;height:1px;background:var(--terra)}
+.secao-titulo{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,46px);font-weight:400;color:var(--verde-esc);line-height:1.15;margin-bottom:14px;max-width:560px}
+.secao-titulo em{font-style:italic;color:var(--terra-esc)}
+.secao-desc{font-size:15px;color:var(--text-soft);line-height:1.75;max-width:520px;font-weight:300;margin-bottom:56px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.card{background:var(--creme);border:1px solid rgba(61,107,80,0.1);border-radius:4px;padding:32px 24px;transition:transform 0.2s,box-shadow 0.2s;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(38,68,56,0.1)}
+.card-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:400;color:var(--terra);line-height:1;margin-bottom:16px;opacity:0.6}
+.card-titulo{font-family:'Playfair Display',serif;font-size:15px;font-weight:500;color:var(--verde-esc);line-height:1.4}
 
-/* SOBRE */
-.sobre{background:var(--verde-esc);padding:100px 64px;color:white}
-.sobre-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.sobre-nome{font-family:'Playfair Display',serif;font-size:30px;margin-bottom:4px}
-.sobre-crp{font-size:10px;letter-spacing:3px;color:var(--terra);text-transform:uppercase}
+/* SOBRE - HIGHLIGHTED QUOTE */
+.sobre{background:var(--verde-esc);padding:100px 64px;position:relative;overflow:hidden}
+.sobre-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:center}
+.sobre-quote{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,38px);font-weight:400;font-style:italic;color:#FAF8F3;line-height:1.4;position:relative;padding-left:32px;border-left:3px solid var(--terra)}
+.sobre-nome{font-family:'Playfair Display',serif;font-size:30px;font-weight:400;color:#FAF8F3;margin-bottom:4px}
+.sobre-crp{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);font-weight:500;margin-bottom:20px}
+.sobre-bio{font-size:14px;color:rgba(250,248,243,0.55);line-height:1.85;font-weight:300}
 
-/* FOOTER */
+/* DEPOIMENTO */
+.depo{background:var(--creme);padding:80px 64px}
+.depo-inner{max-width:760px;margin:0 auto;text-align:center}
+.aspas{font-family:'Playfair Display',serif;font-size:80px;line-height:0.5;color:var(--verde-med);display:block;margin-bottom:24px}
+.depo-texto{font-family:'Playfair Display',serif;font-size:clamp(18px,2.2vw,24px);font-style:italic;font-weight:400;color:var(--text);line-height:1.65;margin-bottom:24px}
+
+/* CTA FINAL */
+.cta-final{background:var(--creme);padding:100px 64px;text-align:center}
+.btn-final{display:inline-flex;align-items:center;gap:10px;padding:17px 44px;background:var(--terra);color:white;border:none;border-radius:3px;font-size:13px;font-family:'Jost',sans-serif;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:0.2s}
+.btn-final:hover{background:var(--terra-esc);transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,120,90,0.25)}
+
+/* RODAPÉ */
 footer{background:var(--verde-esc);padding:40px 64px;text-align:center;border-top:1px solid rgba(250,248,243,0.05)}
-footer p{font-size:11px;color:rgba(250,248,243,0.3);line-height:1.8}
+footer p{font-size:11px;color:rgba(250,248,243,0.3);line-height:1.9;font-weight:300}
 
-@media(max-width:1100px){ .grid{grid-template-columns:repeat(3,1fr)} }
 @media(max-width:900px){
   .hero{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr 1fr}
   .sobre-inner{grid-template-columns:1fr;gap:40px}
-  .hero-esq, .hero-dir, .papeis, .sobre, footer{padding:40px 24px}
+  .hero-esq, .hero-dir, .papeis, .sobre, .cta-final, footer{padding:60px 24px}
 }
-@media(max-width:480px){ .grid{grid-template-columns:1fr} }
+@media(max-width:480px){
+  .grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
 <section class="hero">
   <div class="hero-esq">
-    <span class="tag">E-book gratuito</span>
+    <span class="tag">Material Exclusivo</span>
     <h1 class="titulo">Os 5 Papéis que <em>Estão Te Esgotando</em></h1>
     <p class="subtitulo-hero">Para a mulher que cuida de todo mundo — e esqueceu como cuidar de si.</p>
+    <div class="linha-hero"></div>
     <p class="autora-hero">Por <strong>Thays Moya</strong> &nbsp;·&nbsp; Psicóloga CRP 14/06866-3</p>
   </div>
 
-  <div class="hero-dir" id="form">
-    <div class="form-wrap">
-      <h2 class="form-titulo">Solicite o acesso</h2>
-      <p class="form-desc">Preencha abaixo para enviar sua solicitação. A equipe da Thays enviará o material para o seu WhatsApp.</p>
+  <div class="hero-dir">
+    <div class="form-wrap" id="solicitar">
+      <p class="form-pre">Solicite o acesso</p>
+      <h2 class="form-titulo">Receba o e-book através da <em>nossa equipe</em></h2>
+      <p class="form-desc">Preencha os dados abaixo. A equipe da Thays enviará o material pessoalmente para o seu WhatsApp.</p>
       <form onsubmit="enviar(event)">
-        <div class="campo"><input type="text" id="nome" placeholder="Seu nome" required autocomplete="name"/></div>
-        <div class="campo"><input type="tel" id="fone" placeholder="Seu WhatsApp" required autocomplete="tel"/></div>
+        <div class="campo"><input type="text" id="nome" placeholder="Seu primeiro nome" required /></div>
+        <div class="campo"><input type="tel" id="fone" placeholder="WhatsApp com DDD" required /></div>
         <div class="instrucao">
-          <p>💬 Ao clicar, você falará com a <strong>Equipe de Suporte</strong>, que fará o envio do e-book pessoalmente.</p>
+          <span class="instrucao-icone">💬</span>
+          <p>Ao clicar, você falará com a <strong>Equipe de Suporte</strong>, que fará o envio do e-book pessoalmente.</p>
         </div>
-        <button type="submit" class="btn">Solicitar e-book grátis</button>
+        <button type="submit" class="btn">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Solicitar e-book à equipe
+        </button>
       </form>
+      <p class="aviso">Gratuito · Conteúdo Profissional</p>
     </div>
   </div>
 </section>
 
+<div class="strip">
+  <div class="strip-item"><span>10</span> anos de clínica</div>
+  <div class="strip-item"><span>Envio</span> por suporte</div>
+  <div class="strip-item"><span>5</span> padrões mapeados</div>
+  <div class="strip-item"><span>CRP</span> 14/06866-3</div>
+</div>
+
 <section class="papeis">
   <div class="papeis-inner">
-    <h2 class="secao-titulo">O que você vai descobrir:</h2>
+    <p class="secao-pre">O que você vai descobrir</p>
+    <h2 class="secao-titulo">Os 5 padrões que<br><em>ninguém te ensinou a ver</em></h2>
+    <p class="secao-desc">Identifique os mecanismos emocionais que sustentam o seu cansaço diário.</p>
     <div class="grid">
       <div class="card"><div class="card-num">01</div><h3 class="card-titulo">A mulher que gerencia o casal sozinha</h3></div>
       <div class="card"><div class="card-num">02</div><h3 class="card-titulo">A terapeuta gratuita da família</h3></div>
@@ -108,34 +163,48 @@ footer p{font-size:11px;color:rgba(250,248,243,0.3);line-height:1.8}
   </div>
 </section>
 
+<section class="depo">
+  <div class="depo-inner">
+    <span class="aspas">"</span>
+    <p class="depo-texto">Você não está cansada de trabalhar.<br>Está cansada de sustentar um sistema<br>que funciona porque você não para.</p>
+    <p class="depo-autor">Thays Moya &nbsp;·&nbsp; Psicóloga CRP 14/06866-3</p>
+  </div>
+</section>
+
 <section class="sobre">
   <div class="sobre-inner">
-    <div style="font-style: italic; font-size: 24px; font-family: 'Playfair Display'; border-left: 2px solid var(--terra); padding-left: 20px;">
-      "A mulher que cuida de todo mundo esqueceu de incluir ela mesma na lista."
-    </div>
+    <div class="sobre-quote">A mulher que cuida de todo mundo esqueceu de incluir ela mesma na lista.</div>
     <div>
+      <p class="secao-pre">Quem escreve</p>
       <h3 class="sobre-nome">Thays Moya</h3>
-      <p class="sobre-crp">Psicóloga · CRP 14/06866-3</p>
-      <p style="font-size:14px; margin-top:15px; opacity:0.7; font-weight:300; line-height:1.6">
-        Psicóloga e Terapeuta Sistêmica Integrativa com 10 anos de experiência clínica. Especialista em Gestalt-terapia, dedica sua atuação ao fortalecimento emocional de mulheres, auxiliando-as a identificar padrões de sobrecarga.
-      </p>
+      <p class="sobre-crp">Psicóloga e Terapeuta Sistêmica Integrativa</p>
+      <p class="sobre-bio">Com 10 anos de experiência clínica, Thays Moya é especialista em Gestalt-terapia. Atende mulheres que chegam sobrecarregadas de papéis emocionais — e as auxilia no processo de discernir o que carregar e o que devolver ao sistema.</p>
     </div>
   </div>
 </section>
 
+<section class="cta-final">
+  <div class="cta-final-inner">
+    <h2 class="secao-titulo">Pronta para<br><em>nomear o peso?</em></h2>
+    <p class="secao-desc" style="margin-bottom:40px">Fale com nossa equipe e receba o guia para começar sua mudança.</p>
+    <a href="#solicitar" class="btn-final">
+      Solicitar e-book agora
+    </a>
+  </div>
+</section>
+
 <footer>
-  <p>© 2026 <strong>Thays Fernanda Suci Moya Requena Marques</strong> &nbsp;·&nbsp; Psicóloga CRP 14/06866-3<br>Psicóloga e Terapeuta Sistêmica Integrativa · Material educativo e informativo.<br>Em conformidade com a Resolução CFP nº 010/05.</p>
+  <p><strong>Thays Fernanda Suci Moya Requena Marques</strong><br>Psicóloga CRP 14/06866-3 &nbsp;·&nbsp; Terapeuta Sistêmica Integrativa<br>Material educativo e informativo. Não substitui acompanhamento psicológico individual.<br>Em conformidade com a Resolução CFP nº 010/05.</p>
 </footer>
 
 <script>
-const WHATSAPP_NUMERO="5567935016168";
+const WHATSAPP_NUMERO="5567999208015";
 function enviar(e){
   e.preventDefault();
   const nome=document.getElementById('nome').value.trim();
   const fone=document.getElementById('fone').value.trim();
   if(!nome||!fone)return;
-  // Mensagem ajustada para o suporte/equipe identificar o lead
-  const msg=encodeURIComponent(`Olá, Equipe da Thays! Gostaria de receber o e-book "Os 5 Papéis". Meu nome é ${nome}.`);
+  const msg=encodeURIComponent(`Olá, Equipe da Thays! Vi seu site e gostaria de receber o e-book gratuito "Os 5 Papéis que Estão Te Esgotando". Meu nome é ${nome}.`);
   window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${msg}`,'_blank');
 }
 </script>
