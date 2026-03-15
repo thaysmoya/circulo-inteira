@@ -229,12 +229,30 @@ footer p{font-size:11px;color:rgba(250,248,243,0.3);line-height:1.9;font-weight:
 <script>
 const WHATSAPP_NUMERO="5567935016168";
 const EBOOK_LINK="https://raw.githubusercontent.com/jmarques82/landing-thays/main/ebook_thaysmoya.pdf";
+
+function getOrigem(){
+  const params=new URLSearchParams(window.location.search);
+  const origem=params.get('origem')||params.get('utm_source')||params.get('utm_medium')||'';
+  const mapa={
+    'bio-instagram':'Bio do Instagram',
+    'stories':'Stories',
+    'post-feed':'Post no Feed',
+    'reels':'Reels',
+    'whatsapp':'WhatsApp',
+    'indicacao':'Indicação',
+    'trafego':'Tráfego Pago',
+  };
+  return mapa[origem]||origem||'';
+}
+
 function enviar(e){
   e.preventDefault();
   const nome=document.getElementById('nome').value.trim();
   const fone=document.getElementById('fone').value.trim();
   if(!nome||!fone)return;
-  const msg=encodeURIComponent(`Olá Thays! Sou ${nome} e quero receber o e-book gratuito "Os 5 Papéis que Estão Te Esgotando". Meu WhatsApp é ${fone}.`);
+  const origem=getOrigem();
+  const origemTexto=origem?`\n📍 Origem: ${origem}`:'';
+  const msg=encodeURIComponent(`Olá Thays! Sou ${nome} e quero receber o e-book gratuito "Os 5 Papéis que Estão Te Esgotando". Meu WhatsApp é ${fone}.${origemTexto}`);
   window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${msg}`,'_blank');
 }
 </script>
